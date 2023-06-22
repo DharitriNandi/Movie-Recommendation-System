@@ -33,6 +33,26 @@ def recommend(movie):
         recommended_movie_posters.append(fetch_poster(movie_id))
     return recommended_movies, recommended_movie_posters
 
+
+
+
+
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("http://images.cdn2.stockunlimited.net/preview1300/cinema-background-with-movie-objects_1823384.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+
+add_bg_from_url()
 movies_dict = pickle.load(open('movies_dict.pkl', 'rb'))
 movies=pd.DataFrame(movies_dict)
 similarity = pickle.load(open('similarity.pkl', 'rb'))
